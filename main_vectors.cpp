@@ -147,7 +147,7 @@ void input(Studentas &studentai){
                 nd.push_back(input);
                 while(nd[n] < 0 || nd[n] > 10 || cin.fail()){
                     cin.clear();
-                    cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (0-10): ";
+                    cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (1-10): ";
                     cin >> input;
                     nd.push_back(input);
                 }
@@ -156,7 +156,7 @@ void input(Studentas &studentai){
             cin >> egzaminas;
             while(egzaminas < 0 || egzaminas > 10 || cin.fail()){
                 cin.clear();
-                cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (0-10): ";
+                cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (1-10): ";
                 cin >> egzaminas;
             }
         }
@@ -169,7 +169,7 @@ void input(Studentas &studentai){
             nd.push_back(input);
             while(nd[n] < 0 || nd[n] > 10 || cin.fail()){
                 cin.clear();
-                cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (0-10): ";
+                cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (1-10): ";
                 cin >> input;
                 nd.push_back(input);
             }
@@ -178,7 +178,7 @@ void input(Studentas &studentai){
                 cin >> egzaminas;
                 while(egzaminas < 0 || egzaminas > 10 || cin.fail()){
                     cin.clear();
-                    cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (0-10): ";
+                    cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (1-10): ";
                     cin >> egzaminas;
                 }
                 break;
