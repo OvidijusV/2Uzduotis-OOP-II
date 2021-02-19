@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <ctime>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ struct Studentas
     string vardas;
     string pavarde;
     int n;
-    int *pazymiai;
+    vector<int> pazymiai;
     int egzaminas;
 };
 
@@ -25,10 +26,11 @@ int main(){
     srand(time(NULL));
 
     int kiekstud = 0;
-    Studentas *studentai = new Studentas[kiekstud + 1];
+    vector<Studentas> studentai;
 
     char tn;
     while (true){
+        studentai.resize(kiekstud + 1);
         input(studentai[kiekstud]);
         kiekstud++;
 
@@ -42,15 +44,6 @@ int main(){
         }
         if(tn == 'n') {
             break;
-        } else {
-            
-			Studentas* studentai_temp = new Studentas[kiekstud + 1];
-
-			for (int i = 0; i < kiekstud; i++)
-				studentai_temp[i] = studentai[i];
-
-			delete[] studentai;
-			studentai = studentai_temp;
         }
         
     }
@@ -86,7 +79,7 @@ int main(){
         cout << string(65, '-') << endl;
 
         for(int i = 0; i < kiekstud; i++){
-            sort(studentai[i].pazymiai, studentai[i].pazymiai + studentai[i].n);
+            sort(studentai[i].pazymiai.begin(), studentai[i].pazymiai.end());
 
             double mediana = 0;
             if (studentai[i].n % 2 == 1)
@@ -101,7 +94,6 @@ int main(){
                 << setw(10) << setprecision(2) << galutinis << endl;
         }
     }
-    delete [] studentai;
 }
 
 void input(Studentas &studentai){
@@ -109,7 +101,7 @@ void input(Studentas &studentai){
     int n = 0;
     int egzaminas;
     char tn;
-    int *nd = new int[n + 1];
+    vector<int>nd;
 
     cout << "Iveskite studento varda: ";
     getline(cin, vardas);
@@ -133,8 +125,6 @@ void input(Studentas &studentai){
             cin.ignore(256, '\n');
             cin >> n;
         }
-        delete[] nd;
-        nd = new int[n];
         cout << "Ar norite, jog studento rezultatai butu sugeneruoti atsitiktinai?(t/n): ";
         cin >> tn;
         while(tn != 't' && tn != 'n'){
@@ -144,19 +134,22 @@ void input(Studentas &studentai){
         }
         if(tn == 't'){
             for(int i = 0; i < n; i++){
-                nd[i] = rand() % 10 + 1;
+                nd.push_back(rand() % 10 + 1);
                 cout << i+1 << "-ojo namu darbo rezultatas: " << nd[i] << endl;
             }
             egzaminas = rand() % 10 + 1;
             cout << "Egzamino rezultatas: " << egzaminas << endl;
         } else {
             for(int i = 0; i < n; i++){
+                int input;
                 cout << "Iveskite " << i+1 << "-ojo namu darbo rezultata: ";
-                cin >> nd[i];
+                cin >> input;
+                nd.push_back(input);
                 while(nd[n] < 0 || nd[n] > 10 || cin.fail()){
                     cin.clear();
                     cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (1-10): ";
-                    cin >> nd[n];
+                    cin >> input;
+                    nd.push_back(input);
                 }
             }
             cout << "Iveskite egzamino rezultata: ";
@@ -171,11 +164,14 @@ void input(Studentas &studentai){
         cout << "Noredami sustabdyti namu darbu ivedima irasykite 0" << endl;
         while(true){
             cout << "Iveskite " << n+1 << "-ojo namu darbo rezultata: ";
-            cin >> nd[n];
+            int input;
+            cin >> input;
+            nd.push_back(input);
             while(nd[n] < 0 || nd[n] > 10 || cin.fail()){
                 cin.clear();
                 cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (1-10): ";
-                cin >> nd[n];
+                cin >> input;
+                nd.push_back(input);
             }
             if(nd[n] == 0 && n > 0){
                 cout << "Iveskite egzamino rezultata: ";
@@ -188,16 +184,7 @@ void input(Studentas &studentai){
                 break;
             } else if(nd[n] == 0 && n ==0){
                 cout << "Turi buti ivestas bent vienas namu darbo rezultatas!" << endl;
-            } else{
-                n++;
-                int* nd_temp = new int[n + 1];
-
-				for (int i = 0; i < n; i++)
-					nd_temp[i] = nd[i];
-
-				delete[] nd;
-				nd = nd_temp;
-            }
+            } else n++;
         }
 
     }
