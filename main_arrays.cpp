@@ -18,7 +18,7 @@ struct Studentas
 };
 
 void input(Studentas &studentai);
-
+void checkInputChar(char &tn);
 
 int main(){
 
@@ -35,11 +35,8 @@ int main(){
         cout << "Ar norite prideti dar viena studenta?(t/n): ";
         cin >> tn;
         cin.ignore();
-        while(tn != 't' && tn != 'n'){
-            cout << "Galimas pasirinktimas tik taip(t) arba ne(n)!" << endl;
-            cin >> tn;
-            cin.ignore();
-        }
+        checkInputChar(tn);
+
         if(tn == 'n') {
             break;
         } else {
@@ -58,10 +55,8 @@ int main(){
     cout << "Pradedami isvesti duomenys..." << endl;
     cout << "Ar norite, jog jusu galutinis rezultatas butu pazymiu mediana?(t/n): ";
     cin >> tn;
-    while(tn != 't' && tn != 'n'){
-        cout << "Galimas pasirinktimas tik taip(t) arba ne(n)!" << endl;
-        cin >> tn;
-    }
+    checkInputChar(tn);
+
     if(tn == 'n'){
         cout << left << setw(20) << "Pavarde"
             << setw(15) << "Vardas"
@@ -82,7 +77,7 @@ int main(){
     } else {
         cout << left << setw(20) << "Pavarde"
             << setw(15) << "Vardas"
-            << setw(10) << "Galutinis (Vid.)" << endl;
+            << setw(10) << "Galutinis (Med.)" << endl;
         cout << string(65, '-') << endl;
 
         for(int i = 0; i < kiekstud; i++){
@@ -110,6 +105,7 @@ void input(Studentas &studentai){
     int egzaminas;
     char tn;
     int *nd = new int[n + 1];
+    int input;
 
     cout << "Iveskite studento varda: ";
     getline(cin, vardas);
@@ -119,10 +115,7 @@ void input(Studentas &studentai){
     cout << "Toliau iveskite studento " << vardas << " " << pavarde << " prasomus duomenis" << endl;
     cout << "Ar yra zinomas tikslus namu darbu skaicius?(t/n): ";
     cin >> tn;
-    while(tn != 't' && tn != 'n'){
-        cout << "Galimas pasirinkimas tik taip(t) arba ne(n)!" << endl;
-        cin >> tn;
-    }
+    checkInputChar(tn);
 
     if(tn == 't'){
         cout << "Iveskite tikslu namu darbu skaiciu: ";
@@ -137,11 +130,8 @@ void input(Studentas &studentai){
         nd = new int[n];
         cout << "Ar norite, jog studento rezultatai butu sugeneruoti atsitiktinai?(t/n): ";
         cin >> tn;
-        while(tn != 't' && tn != 'n'){
-            cout << "Galimas pasirinkimas tik taip(t) arba ne(n)!" << endl;
-            cin.clear();
-            cin >> tn;
-        }
+        checkInputChar(tn);
+
         if(tn == 't'){
             for(int i = 0; i < n; i++){
                 nd[i] = rand() % 10 + 1;
@@ -152,41 +142,45 @@ void input(Studentas &studentai){
         } else {
             for(int i = 0; i < n; i++){
                 cout << "Iveskite " << i+1 << "-ojo namu darbo rezultata: ";
-                cin >> nd[i];
-                while(nd[n] < 0 || nd[n] > 10 || cin.fail()){
+                cin >> input;
+                while(input < 0 || input > 10 || cin.fail()){
                     cin.clear();
                     cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (1-10): ";
-                    cin >> nd[n];
+                    cin >> input;
                 }
+                nd[i] = input;
             }
             cout << "Iveskite egzamino rezultata: ";
-            cin >> egzaminas;
-            while(egzaminas < 0 || egzaminas > 10 || cin.fail()){
+            cin >> input;
+            while(input < 0 || input > 10 || cin.fail()){
                 cin.clear();
                 cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (1-10): ";
-                cin >> egzaminas;
+                cin >> input;
             }
+            egzaminas = input;
         }
     } else {
         cout << "Noredami sustabdyti namu darbu ivedima irasykite 0" << endl;
         while(true){
             cout << "Iveskite " << n+1 << "-ojo namu darbo rezultata: ";
-            cin >> nd[n];
-            while(nd[n] < 0 || nd[n] > 10 || cin.fail()){
+            cin >> input;
+            while(input < 0 || input > 10 || cin.fail()){
                 cin.clear();
                 cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (1-10): ";
-                cin >> nd[n];
+                cin >> input;
             }
-            if(nd[n] == 0 && n > 0){
+            nd[n] = input;
+            if(input == 0 && n > 0){
                 cout << "Iveskite egzamino rezultata: ";
-                cin >> egzaminas;
-                while(egzaminas < 0 || egzaminas > 10 || cin.fail()){
+                cin >> input;
+                while(input < 0 || input > 10 || cin.fail()){
                     cin.clear();
                     cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (1-10): ";
-                    cin >> egzaminas;
+                    cin >> input;
                 }
+                egzaminas = input;
                 break;
-            } else if(nd[n] == 0 && n ==0){
+            } else if(input == 0 && n ==0){
                 cout << "Turi buti ivestas bent vienas namu darbo rezultatas!" << endl;
             } else{
                 n++;
@@ -207,4 +201,12 @@ void input(Studentas &studentai){
     studentai.pazymiai = nd;
     studentai.egzaminas = egzaminas;
 
+};
+
+void checkInputChar(char &tn){
+    while(tn != 't' && tn != 'n'){
+        cout << "Galimas pasirinkimas tik taip(t) arba ne(n)!" << endl;
+        cout << "Pakartokite pasirinkima(t/n): ";
+        cin >> tn;
+    }
 }
