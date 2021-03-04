@@ -33,6 +33,5 @@ Antanas     Programuotojas     6.33
   * Pasirinkti ar norime, jog galutinis pažymis būtų skaičiuojamas kaip mediana - t, jei norime jog būtų išvestas vidurkis - n
 
 ## Versijos
-[v0.1](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.1) Vardo, pavardės ir pažymių įvestis, atsakymai į programos užklausas, galutinio pažymio skaičiavimas(vidurkis arba mediana)
-
+[v0.1](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.1) Vardo, pavardės ir pažymių įvestis, atsakymai į programos užklausas, galutinio pažymio skaičiavimas(vidurkis arba mediana)\
 [v0.2](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.2) Pridėta galimybe nuskaityti rezultatus iš failo, pridėtas automatinis rikiavimas pagal pavardes
