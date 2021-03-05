@@ -23,7 +23,14 @@ Antanas     Programuotojas     6.33
 * Įdiegimas ir naudojimas
   * Iš skilties "releases" pasirinkti norimą programos versiją ir atsisiųsti
   * Atsisiųstą kodą sukompiliuoti per komandinę eilutę (CMD) arba naudojamu IDE
+  ```
+  g++ -o programa main.cpp functions.cpp
+  ```
   * Paleisti gautą vykdomąjį failą (.exe)
+  ```
+  ./programa
+  Arba tiesiog atidaryti .exe failą tame aplanke kur atsisiuntėte programą
+  ```
 * Naudojimas
   * Paleidus failą iš pradžių pasirinkti ar norima įvesti duomenis pačiam ar nuskaityti iš failo
   * Jei pasirinkta duomenis nuskaityti iš failo galima atsisiųsti kelis šablonus, norimą nuskaityti failą pervadinti į "kursiokai.txt"
@@ -34,4 +41,5 @@ Antanas     Programuotojas     6.33
 
 ## Versijos
 [v0.1](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.1) Vardo, pavardės ir pažymių įvestis, atsakymai į programos užklausas, galutinio pažymio skaičiavimas(vidurkis arba mediana)\
-[v0.2](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.2) Pridėta galimybe nuskaityti rezultatus iš failo, pridėtas automatinis rikiavimas pagal pavardes
+[v0.2](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.2) Pridėta galimybe nuskaityti rezultatus iš failo, pridėtas automatinis rikiavimas pagal pavardes\
+[v0.3](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.3) Atliktas kodo reorganizavimas, pagrindinis failas išskirtas į antraščių ir funkcijų failą, pridėti keli pranešimai nepavykus įvykdyti programos
