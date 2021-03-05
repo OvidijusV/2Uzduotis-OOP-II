@@ -185,7 +185,6 @@ void readFile(vector<Studentas> &studentai){
     input.open("kursiokai.txt");
     if(input.is_open()) cout << "Failas atidarytas..." << endl;
 
-    getline(input, line);
     input.ignore(256, '\n');
 
     while(true){
