@@ -23,7 +23,14 @@ Antanas     Programuotojas     6.33
 * Įdiegimas ir naudojimas
   * Iš skilties "releases" pasirinkti norimą programos versiją ir atsisiųsti
   * Atsisiųstą kodą sukompiliuoti per komandinę eilutę (CMD) arba naudojamu IDE
+  ```
+  g++ -o programa main.cpp
+  ```
   * Paleisti gautą vykdomąjį failą (.exe)
+  ```
+  ./programa
+  Arba tiesiog atidaryti .exe failą tame aplanke kur atsisiuntėte programą
+  ```
 * Naudojimas
   * Paleidus failą iš pradžių pasirinkti ar norima įvesti duomenis pačiam ar nuskaityti iš failo
   * Jei pasirinkta duomenis nuskaityti iš failo galima atsisiųsti kelis šablonus, norimą nuskaityti failą pervadinti į "kursiokai.txt"
