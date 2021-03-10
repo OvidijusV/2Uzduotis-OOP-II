@@ -7,6 +7,15 @@ int main(){
     vector<Studentas> studentai;
 
     char tn;
+    cout << "Ar norite, jog duomenis butu sugeneruoti automatiskai?(t/n): ";
+    cin >> tn;
+    cin.ignore();
+    checkInputChar(tn);
+
+    if(tn == 't'){
+        generationNumber();
+    }
+
     cout << "Ar norite, jog duomenis butu nuskaityti is failo?(t/n): ";
     cin >> tn;
     cin.ignore();

@@ -230,3 +230,68 @@ void output(vector<Studentas> &studentai){
         }
     }
 }
+
+void generationNumber(){
+    int skaicius;
+    cout << "Pasirinkite kiek studentu generuoti: " << endl
+         << "(1) 1000" << endl
+         << "(2) 10000" << endl
+         << "(3) 100000" << endl
+         << "(4) 1000000" << endl
+         << "(5) 10000000";
+    cin >> skaicius;
+    
+    while(true){
+        switch (skaicius)
+        {
+        case 1:
+            generateFile(1000);
+            break;
+        case 2:
+            generateFile(10000);
+            break;
+        case 3:
+            generateFile(100000);
+            break;
+        case 4:
+            generateFile(1000000);
+            break;
+        case 5:
+            generateFile(10000000);
+            break;
+        default:
+        {
+            cout << "Blogas pasirinkimas. Galimi pasirinkimai nuo 1 iki 7";
+            cin >> skaicius;
+            continue;
+        }
+        }
+    break;
+    }
+}
+
+void generateFile(int numberStudents){
+    string file;
+    int kieknd = rand() % 10 + 5;
+    file = "studentai" + to_string(numberStudents) + ".txt";
+
+    ofstream generate;
+    generate.open(file);
+
+    generate << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
+    for (int i = 0; i < kieknd; i++){
+        generate << setw(7) << "ND" + to_string(i + 1);
+    };
+    generate << setw(7) << "Egz." << endl;
+
+    for(int i = 0; i < numberStudents; i++){
+        generate << left << setw(20) << "Vardas" + to_string(i + 1) << setw(20) << "Pavarde" + to_string(i + 1);
+        
+        for (int j = 0; j < kieknd; j++){
+            generate << setw(7) << rand() % 10 + 1;
+        }
+        generate << setw(7) << rand() % 10 + 1 << endl;
+    }
+
+    generate.close();
+}

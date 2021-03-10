@@ -27,5 +27,7 @@ void checkInputChar(char &tn);
 void readFile(vector<Studentas> &studentai);
 bool palyginimas(const Studentas& pirmas, const Studentas& antras);
 void output(vector<Studentas> &studentai);
+void generationNumber();
+void generateFile(int numberStudents);
 
 #endif
