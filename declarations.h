@@ -20,6 +20,7 @@ struct Studentas
     string pavarde;
     vector<int> pazymiai;
     int egzaminas;
+    double vidurkis = 0;
 };
 
 void input(vector<Studentas> &studentai);
@@ -29,5 +30,8 @@ bool palyginimas(const Studentas& pirmas, const Studentas& antras);
 void output(vector<Studentas> &studentai);
 void generationNumber();
 void generateFile(int numberStudents);
+void generatedFileRead(vector<Studentas> &studentai, int studsNumber);
+void countAvg(vector<Studentas> &studentai);
+void sortStudents(vector<Studentas> &studentai);
 
 #endif
