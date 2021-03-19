@@ -7,29 +7,39 @@ int main(){
     vector<Studentas> studentai;
 
     char tn;
-    cout << "Ar norite, jog duomenis butu nuskaityti is failo?(t/n): ";
+    cout << "Ar norite, jog duomenis butu sugeneruoti automatiskai ir iskarto nuskaityti?(t/n): ";
     cin >> tn;
     cin.ignore();
     checkInputChar(tn);
 
     if(tn == 't'){
-        readFile(studentai);
-        cout << "Failo duomenys nuskaityti" << endl;
-        sort(studentai.begin(), studentai.end(), palyginimas);
-        output(studentai);
+        generationNumber();
+    }
+    else if (tn == 'n'){
+        cout << "Ar norite, jog duomenis butu nuskaityti is failo?(t/n): ";
+        cin >> tn;
+        cin.ignore();
+        checkInputChar(tn);
 
-    } else {
-        while (true){
-            input(studentai);
+        if(tn == 't'){
+            readFile(studentai);
+            cout << "Failo duomenys nuskaityti" << endl;
+            sort(studentai.begin(), studentai.end(), palyginimas);
+            output(studentai);
 
-            cout << "Ar norite prideti dar viena studenta?(t/n): ";
-            cin >> tn;
-            cin.ignore();
-            checkInputChar(tn);
-            if(tn == 'n') {
-                break;
-            }   
+        } else {
+            while (true){
+                input(studentai);
+
+                cout << "Ar norite prideti dar viena studenta?(t/n): ";
+                cin >> tn;
+                cin.ignore();
+                checkInputChar(tn);
+                if(tn == 'n') {
+                    break;
+                }   
+            }
+            output(studentai);
         }
-        output(studentai);
     }
 }
