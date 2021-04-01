@@ -179,6 +179,18 @@ bool palyginimas(const Studentas& pirmas, const Studentas& antras){
     return pirmas.pavarde < antras.pavarde;
 };
 
+void countAvg(vector<Studentas> &studentai){
+    for(int i = 0; i < studentai.size(); i++){
+            double galutinisvid = 0;
+
+            for(int j = 0; j < studentai[i].pazymiai.size(); j++)
+                galutinisvid += studentai[i].pazymiai[j];
+
+            galutinisvid = galutinisvid / studentai[i].pazymiai.size();
+            studentai[i].vidurkis = galutinisvid * 0.4 + studentai[i].egzaminas * 0.6;
+    }
+}
+
 void output(vector<Studentas> &studentai){
     char tn;
     cout << "Pradedami isvesti duomenys..." << endl;
@@ -225,9 +237,10 @@ void output(vector<Studentas> &studentai){
     }
 }
 
-void generationNumber(){
-    vector<Studentas> studentai;
+int generationNumber(){
+    //vector<Studentas> studentai;
     int skaicius;
+    char tn;
     cout << "Pasirinkite kiek studentu generuoti: " << endl
          << "(1) 1000" << endl
          << "(2) 10000" << endl
@@ -235,55 +248,35 @@ void generationNumber(){
          << "(4) 1000000" << endl
          << "(5) 10000000" << endl;
     cin >> skaicius;
-    
+    int number;
     while(true){
         switch (skaicius)
         {
         case 1:
-            generateFile(1000);
-            
-            generatedFileRead(studentai, 1000);
+            number = 1000;
 
-            countAvg(studentai);
-
-            sortStudents(studentai);
             break;
+
         case 2:
-            generateFile(10000);
+            number = 10000;
             
-            generatedFileRead(studentai, 10000);
-
-            countAvg(studentai);
-
-            sortStudents(studentai);
             break;
+
         case 3:
-            generateFile(100000);
+            number = 100000;
             
-            generatedFileRead(studentai, 100000);
-
-            countAvg(studentai);
-
-            sortStudents(studentai);
             break;
+
         case 4:
-            generateFile(1000000);
+            number = 1000000;
             
-            generatedFileRead(studentai, 1000000);
-
-            countAvg(studentai);
-
-            sortStudents(studentai);
             break;
+
         case 5:
-            generateFile(10000000);
-            
-            generatedFileRead(studentai, 10000000);
+            number = 10000000;
 
-            countAvg(studentai);
-
-            sortStudents(studentai);
             break;
+            
         default:
         {
             cout << "Blogas pasirinkimas. Galimi pasirinkimai nuo 1 iki 7";
@@ -293,6 +286,7 @@ void generationNumber(){
         }
     break;
     }
+    return number;
 }
 
 void generateFile(int numberStudents){
@@ -328,84 +322,102 @@ void generateFile(int numberStudents){
     cout << numberStudents << " studentu generavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
 }
 
-void generatedFileRead(vector<Studentas> &studentai, int studsNumber){
-    Studentas student;
-    string line, vardas, pavarde;
-    vector<int> grades;
 
-    ifstream input;
-
-    try
-    {
-        string pavadinimas = "studentai" + to_string(studsNumber) + ".txt";;
-        input.open(pavadinimas);
-        if(!input.is_open())
-            throw 1;
-        else cout << "Failas nuskaitomas..." << endl;
-    }
-    catch(int error)
-    {
-        std::cout << "Failas nerastas... Patikrinkite ar failo teisingas failo pavadinimas ir formatas (kursiokai.txt)" << endl;
-        cout << "Programa stabdoma";
-        exit(0);
-    }
-
-    input.ignore(256, '\n');
-
-    Timer t;
-
-    try
-    {
-        while(true){
-        input >> vardas >> pavarde;
-        getline(input, line);
-
-        stringstream ndpazymiai(line);
-        int n;
-        while(ndpazymiai >> n){
-            grades.push_back(n);
-        }
-
-        grades.pop_back();
-        student.egzaminas = n;
-        student.vardas = vardas;
-        student.pavarde = pavarde;
-        student.pazymiai = grades;
-        studentai.push_back(student);
-        grades.clear();
-
-        if(input.eof())
-            break;
-        }
-    }
-    catch(std::bad_alloc& exception)
-    {
-        std::cout << "Faile yra klaidu" << endl;
-        input.ignore(256, '\n');
-    }
-    
-
-    //
-    input.close();
-
-    cout << studsNumber << " studentu nuskaitymas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
-};
-
-void countAvg(vector<Studentas> &studentai){
-    for(int i = 0; i < studentai.size(); i++){
-            double galutinisvid = 0;
-
-            for(int j = 0; j < studentai[i].pazymiai.size(); j++)
-                galutinisvid += studentai[i].pazymiai[j];
-
-            galutinisvid = galutinisvid / studentai[i].pazymiai.size();
-            studentai[i].vidurkis = galutinisvid * 0.4 + studentai[i].egzaminas * 0.6;
-    }
-}
-
-void sortStudents(vector<Studentas> &studentai){
+void sortStudentsVector(vector<Studentas> &studentai){
     vector<Studentas> moksliukai;
     vector<Studentas> nepatenkinami;
+    cout << "Pradedamas studentu rusiavimas..." << endl;
+    Timer t;
+    for(int i=0; i < studentai.size(); i++){
+
+        if (studentai[i].vidurkis >= 5.00){
+            moksliukai.push_back(studentai[i]);
+            studentai.pop_back();
+        }
+        else{ 
+            nepatenkinami.push_back(studentai[i]);
+            studentai.pop_back();
+        }
+        
+    }
+    cout << studentai.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
+
+
+    cout << "Studentu duomenis isvedami i failus..." << endl;
+
+    ofstream moksl;
+    moksl.open("moksliukai.txt");
+
+    moksl << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
+
+    for(int i = 0; i < moksliukai.size(); i++){
+        moksl << left << setw(20) << moksliukai[i].vardas << setw(20) << moksliukai[i].pavarde << setw(10) << setprecision(3) << moksliukai[i].vidurkis;
+        if(i != moksliukai.size() - 1) moksl << endl;
+    }
+    moksl.close();
+
+    ofstream nepat;
+    nepat.open("nepatenkinami.txt");
+
+    nepat << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
+
+    for(int i = 0; i < nepatenkinami.size(); i++){
+        nepat << left << setw(20) << nepatenkinami[i].vardas << setw(20) << nepatenkinami[i].pavarde << setw(10) << setprecision(3) << nepatenkinami[i].vidurkis;
+        if(i != nepatenkinami.size() - 1) nepat << endl;
+    }
+    nepat.close();
+
+    cout << studentai.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
+};
+
+
+
+void sortStudentsList(list<Studentas> &studentai){
+    list<Studentas> moksliukai;
+    list<Studentas> nepatenkinami;
+    cout << "Pradedamas studentu rusiavimas..." << endl;
+    Timer t;
+    for(auto it = studentai.begin(); it != studentai.end(); it++){
+
+        if (it->vidurkis >= 5.00)
+            moksliukai.assign(studentai.begin(), it);
+
+        else nepatenkinami.assign(studentai.begin(), it);
+        
+    }
+    cout << studentai.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
+
+
+    cout << "Studentu duomenis isvedami i failus..." << endl;
+
+    ofstream moksl;
+    moksl.open("moksliukai.txt");
+
+    moksl << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
+
+    for(auto it = moksliukai.begin(); it != moksliukai.end(); it++){
+        moksl << left << setw(20) << it->vardas << setw(20) << it->pavarde << setw(10) << setprecision(3) << it->vidurkis;
+        //if(it != moksliukai.size() - 1) moksl << endl;
+    }
+    moksl.close();
+
+    ofstream nepat;
+    nepat.open("nepatenkinami.txt");
+
+    nepat << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
+
+    for(auto it = nepatenkinami.begin(); it != nepatenkinami.end(); it++){
+        nepat << left << setw(20) << it->vardas << setw(20) << it->pavarde << setw(10) << setprecision(3) << it->vidurkis;
+        //if(i != nepatenkinami.size() - 1) nepat << endl;
+    }
+    nepat.close();
+
+    cout << studentai.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
+};
+
+void sortStudentsDeque(deque<Studentas> &studentai){
+    deque<Studentas> moksliukai;
+    deque<Studentas> nepatenkinami;
     cout << "Pradedamas studentu rusiavimas..." << endl;
     Timer t;
     for(int i=0; i < studentai.size(); i++){
@@ -444,5 +456,4 @@ void sortStudents(vector<Studentas> &studentai){
     nepat.close();
 
     cout << studentai.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
-};
-
+}; 
