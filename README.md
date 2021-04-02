@@ -40,8 +40,26 @@ Antanas     Programuotojas     6.33
   * Įvesti namų darbų ar egzamino rezultatus dešimtbalėje sistemoje
   * Pasirinkti ar norime, jog galutinis pažymis būtų skaičiuojamas kaip mediana - t, jei norime jog būtų išvestas vidurkis - n
 
+## Programos veikimo sparta
+
+|               | 1000     | 10000    | 100000   | 1000000  | 10000000 |
+| ------------- |----------| ---------|----------|----------|----------|
+| **Vector**    |          |          |          |          |          |
+| Nuskaitymas   | 0.018s   | 0.109s   | 1.19s    | 9.42s    | 69.171s  |
+| Rūšiavimas    | 0.134s   | 0.01s    | 0.071s   | 0.856s   | 8.964s   |
+| **List**      |          |          |          |          |          |
+| Nuskaitymas   | 0.014s   | 0.148s   | 1.232s   | 7.529s   | 87.119s  |
+| Rūšiavimas    | 0.001s   | 0.009s   | 0.079s   | 0.661s   | 6.954s   |
+| **Deque**     |          |          |          |          |          |
+| Nuskaitymas   | 0.012s   | 0.102s   | 1.113s   | 8.552s   | 87.766s  |
+| Rūšiavimas    | 0.001s   | 0.009s   | 0.071s   | 0.606s   | 6.246s   |
+
+Specifikacija: CPU I7-7700HQ 4Core 2.8GHz, RAM DDR4 2400MHz 16GB, SSD 
+
 ## Versijos
 [v0.1](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.1) Vardo, pavardės ir pažymių įvestis, atsakymai į programos užklausas, galutinio pažymio skaičiavimas(vidurkis arba mediana)\
 [v0.2](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.2) Pridėta galimybe nuskaityti rezultatus iš failo, pridėtas automatinis rikiavimas pagal pavardes\
 [v0.3](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.3) Atliktas kodo reorganizavimas, pagrindinis failas išskirtas į antraščių ir funkcijų failą, pridėti keli pranešimai nepavykus įvykdyti programos\
-[v0.4](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.4) Pridėtas automatinis duomenų generavimas ir nuskaitymas iš failo, studentų rūšiavimas pagal galutinį vidurkį ir išvedimas į du atskirus failus
+[v0.4](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.4) Pridėtas automatinis duomenų generavimas ir nuskaitymas iš failo, studentų rūšiavimas pagal galutinį vidurkį ir išvedimas į du atskirus failus\
+[v0.5](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.5) Pridėta programos spartos matavimo galimybė naudojant vector, list arba deque konteinerius
+

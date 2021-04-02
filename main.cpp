@@ -1,5 +1,4 @@
 #include "declarations.h"
-
 int main(){
 
     srand(time(NULL));
@@ -11,9 +10,26 @@ int main(){
     cin >> tn;
     cin.ignore();
     checkInputChar(tn);
-
+    int skai = generationNumber();
     if(tn == 't'){
-        generationNumber();
+        cout << "Pasirinkite ar failus nuskaityti i vector, list ar deque konteinerius(v, l, d): ";
+        cin >> tn;
+        if(tn == 'v'){
+            vector<Studentas> studentai;
+            generateFile(skai);
+            generatedFileRead(studentai, skai);
+            sortStudentsVector(studentai);
+        } else if (tn == 'l'){
+            list<Studentas> studentai;
+            generateFile(skai);
+            generatedFileRead(studentai, skai);
+            sortStudentsList(studentai);
+        } else {
+            deque<Studentas> studentai;
+            generateFile(skai);
+            generatedFileRead(studentai, skai);
+            sortStudentsDeque(studentai);
+        }
     }
     else if (tn == 'n'){
         cout << "Ar norite, jog duomenis butu nuskaityti is failo?(t/n): ";
