@@ -12,7 +12,7 @@ int main(){
     checkInputChar(tn);
     int skai = generationNumber();
     if(tn == 't'){
-        cout << "Pasirinkite ar failus nuskaityti į vector, list ar deque konteinerius(v, l, d): ";
+        cout << "Pasirinkite ar failus nuskaityti i vector, list ar deque konteinerius(v, l, d): ";
         cin >> tn;
         if(tn == 'v'){
             vector<Studentas> studentai;
@@ -21,7 +21,6 @@ int main(){
             sortStudentsVector(studentai);
         } else if (tn == 'l'){
             list<Studentas> studentai;
-            //generationNumber();
             generateFile(skai);
             generatedFileRead(studentai, skai);
             sortStudentsList(studentai);

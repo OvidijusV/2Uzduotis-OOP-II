@@ -328,19 +328,19 @@ void sortStudentsVector(vector<Studentas> &studentai){
     vector<Studentas> nepatenkinami;
     cout << "Pradedamas studentu rusiavimas..." << endl;
     Timer t;
-    for(int i=0; i < studentai.size(); i++){
+    for(int i=0; i < studentai.size(); i){
 
         if (studentai[i].vidurkis >= 5.00){
             moksliukai.push_back(studentai[i]);
-            studentai.pop_back();
+            studentai.erase(studentai.begin());
         }
         else{ 
             nepatenkinami.push_back(studentai[i]);
-            studentai.pop_back();
+            studentai.erase(studentai.begin());
         }
         
     }
-    cout << studentai.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
+    cout << moksliukai.size() + nepatenkinami.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
 
 
     cout << "Studentu duomenis isvedami i failus..." << endl;
@@ -367,7 +367,7 @@ void sortStudentsVector(vector<Studentas> &studentai){
     }
     nepat.close();
 
-    cout << studentai.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
+    cout << moksliukai.size() + nepatenkinami.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
 };
 
 
@@ -377,12 +377,17 @@ void sortStudentsList(list<Studentas> &studentai){
     list<Studentas> nepatenkinami;
     cout << "Pradedamas studentu rusiavimas..." << endl;
     Timer t;
-    for(auto it = studentai.begin(); it != studentai.end(); it++){
+    for(auto it = studentai.begin(); it != studentai.end(); ++it){
 
-        if (it->vidurkis >= 5.00)
-            moksliukai.assign(studentai.begin(), it);
+        if (it->vidurkis >= 5.00){
+            moksliukai.push_back(*it);
+            studentai.erase(studentai.begin(), it);
+        } else{
+            nepatenkinami.push_back(*it);
+            studentai.erase(studentai.begin(), it);
 
-        else nepatenkinami.assign(studentai.begin(), it);
+        }
+
         
     }
     cout << studentai.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
@@ -396,8 +401,7 @@ void sortStudentsList(list<Studentas> &studentai){
     moksl << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
 
     for(auto it = moksliukai.begin(); it != moksliukai.end(); it++){
-        moksl << left << setw(20) << it->vardas << setw(20) << it->pavarde << setw(10) << setprecision(3) << it->vidurkis;
-        //if(it != moksliukai.size() - 1) moksl << endl;
+        moksl << left << setw(20) << it->vardas << setw(20) << it->pavarde << setw(10) << setprecision(3) << it->vidurkis << endl;
     }
     moksl.close();
 
@@ -407,12 +411,11 @@ void sortStudentsList(list<Studentas> &studentai){
     nepat << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
 
     for(auto it = nepatenkinami.begin(); it != nepatenkinami.end(); it++){
-        nepat << left << setw(20) << it->vardas << setw(20) << it->pavarde << setw(10) << setprecision(3) << it->vidurkis;
-        //if(i != nepatenkinami.size() - 1) nepat << endl;
+        nepat << left << setw(20) << it->vardas << setw(20) << it->pavarde << setw(10) << setprecision(3) << it->vidurkis << endl;
     }
     nepat.close();
 
-    cout << studentai.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
+    cout << moksliukai.size() + nepatenkinami.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
 };
 
 void sortStudentsDeque(deque<Studentas> &studentai){
@@ -420,15 +423,17 @@ void sortStudentsDeque(deque<Studentas> &studentai){
     deque<Studentas> nepatenkinami;
     cout << "Pradedamas studentu rusiavimas..." << endl;
     Timer t;
-    for(int i=0; i < studentai.size(); i++){
+    for(int i=0; i < studentai.size(); i){
 
-        if (studentai[i].vidurkis >= 5.00)
+        if (studentai[i].vidurkis >= 5.00){
             moksliukai.push_back(studentai[i]);
-
-        else nepatenkinami.push_back(studentai[i]);
-        
+            studentai.erase(studentai.begin());
+        } else{ 
+            nepatenkinami.push_back(studentai[i]);
+            studentai.erase(studentai.begin());
+        }
     }
-    cout << studentai.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
+    cout << moksliukai.size() + nepatenkinami.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
 
 
     cout << "Studentu duomenis isvedami i failus..." << endl;
@@ -455,5 +460,5 @@ void sortStudentsDeque(deque<Studentas> &studentai){
     }
     nepat.close();
 
-    cout << studentai.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
+    cout << moksliukai.size() + nepatenkinami.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
 }; 

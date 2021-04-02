@@ -47,6 +47,10 @@ bool palyginimas(const Studentas& pirmas, const Studentas& antras);
 void output(vector<Studentas> &studentai);
 int generationNumber();
 void generateFile(int numberStudents);
+void countAvg(vector<Studentas> &studentai);
+void sortStudentsVector(vector<Studentas> &studentai);
+void sortStudentsList(list<Studentas> &studentai);
+void sortStudentsDeque(deque<Studentas> &studentai);
 
 template<class T>
 void generatedFileRead(T& studentai, int numm){
@@ -116,10 +120,5 @@ void generatedFileRead(T& studentai, int numm){
 
     cout << numm << " studentu nuskaitymas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
 };
-void countAvg(vector<Studentas> &studentai);
-void sortStudentsVector(vector<Studentas> &studentai);
-void sortStudentsList(list<Studentas> &studentai);
-void sortStudentsDeque(deque<Studentas> &studentai);
-
 
 #endif
