@@ -51,6 +51,7 @@ void countAvg(vector<Studentas> &studentai);
 void sortStudentsVector(vector<Studentas> &studentai);
 void sortStudentsList(list<Studentas> &studentai);
 void sortStudentsDeque(deque<Studentas> &studentai);
+int whichRead();
 
 template<class T>
 void generatedFileRead(T& studentai, int numm){
