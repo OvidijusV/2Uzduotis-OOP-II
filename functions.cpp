@@ -238,7 +238,6 @@ void output(vector<Studentas> &studentai){
 }
 
 int generationNumber(){
-    //vector<Studentas> studentai;
     int skaicius;
     char tn;
     cout << "Pasirinkite kiek studentu generuoti: " << endl
@@ -252,28 +251,34 @@ int generationNumber(){
     while(true){
         switch (skaicius)
         {
+        
         case 1:
             number = 1000;
+            generateFile(number);
 
             break;
 
         case 2:
             number = 10000;
-            
+            generateFile(number);
+
             break;
 
         case 3:
             number = 100000;
+            generateFile(number);
             
             break;
 
         case 4:
             number = 1000000;
+            generateFile(number);
             
             break;
 
         case 5:
             number = 10000000;
+            generateFile(number);
 
             break;
             
@@ -328,7 +333,7 @@ void sortStudentsVector(vector<Studentas> &studentai){
     vector<Studentas> nepatenkinami;
     cout << "Pradedamas studentu rusiavimas..." << endl;
     Timer t;
-    for(int i=0; i < studentai.size(); i){
+    for(int i=0; i < studentai.size(); i++){
 
         if (studentai[i].vidurkis >= 5.00){
             moksliukai.push_back(studentai[i]);
@@ -390,7 +395,7 @@ void sortStudentsList(list<Studentas> &studentai){
 
         
     }
-    cout << studentai.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
+    cout << moksliukai.size() + nepatenkinami.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
 
 
     cout << "Studentu duomenis isvedami i failus..." << endl;
@@ -461,4 +466,56 @@ void sortStudentsDeque(deque<Studentas> &studentai){
     nepat.close();
 
     cout << moksliukai.size() + nepatenkinami.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
-}; 
+};
+
+int whichRead(){
+    int skaicius;
+    char tn;
+    cout << "Pasirinkite kuri studentu faila nuskaityti: " << endl
+         << "(1) studentai1000.txt" << endl
+         << "(2) studentai10000.txt" << endl
+         << "(3) studentai100000.txt" << endl
+         << "(4) studentai1000000.txt" << endl
+         << "(5) studentai10000000.txt" << endl;
+    cin >> skaicius;
+    int number;
+    while(true){
+        switch (skaicius)
+        {
+        
+        case 1:
+            number = 1000;
+
+            break;
+
+        case 2:
+            number = 10000;
+
+            break;
+
+        case 3:
+            number = 100000;
+            
+            break;
+
+        case 4:
+            number = 1000000;
+            
+            break;
+
+        case 5:
+            number = 10000000;
+
+            break;
+            
+        default:
+        {
+            cout << "Blogas pasirinkimas. Galimi pasirinkimai nuo 1 iki 7";
+            cin >> skaicius;
+            continue;
+        }
+        }
+    break;
+    }
+    return number;
+}
