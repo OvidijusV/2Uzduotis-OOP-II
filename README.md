@@ -20,7 +20,16 @@ Justas      Vairuotojas        7.49
 Antanas     Programuotojas     6.33 
 ```
 ## Įdiegimo ir naudojimo instrukcija
-* Įdiegimas ir naudojimas
+* Įdiegimas (1 būdas)
+  * Windows naudotojams:
+   ```
+   mingw32-make -f MakeFileWin
+   ```
+  * MacOS, Linux ar kitos UNIX sistemos naudotojams:
+  ```
+   make -f MakeFile
+  ```
+* Įdiegimas (2 būdas)
   * Iš skilties "releases" pasirinkti norimą programos versiją ir atsisiųsti
   * Atsisiųstą kodą sukompiliuoti per komandinę eilutę (CMD) arba naudojamu IDE
   ```
@@ -31,6 +40,7 @@ Antanas     Programuotojas     6.33
   ./programa
   Arba tiesiog atidaryti .exe failą tame aplanke kur atsisiuntėte programą
   ```
+  
 * Naudojimas
   * Paleidus failą iš pradžių pasirinkti ar norima sugeneruoti duomenis automatiškai ir nuskaityti ar įvesti duomenis pačiam, nuskaityti iš failo
   * Jei pasirinkta generuoti ir nuskaityti automatiškai, pasirenkama kokį kiekį studentų norima generuoti
