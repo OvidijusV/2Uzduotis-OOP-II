@@ -4,6 +4,7 @@
 ## Funkcijos
 Vartotojas gali/turi:
 * Pasirinkti ar generuoti duomenis ir nuskaityti automatiškai ar įvesti studento duomenis pačiam, nuskaityti iš failo
+* Pasirinkti ar generuoti naują failą ar pereiti prie nuskaitymo
 * Pasirinkus įvesti pačiam, prašoma įvesti studento vardą ir pavardę
 * Pasirinkti ar žino atliktų namų darbų skaičių (t/n forma)
 * Pasirinkti ar namų darbų rezultatus sugeneruoti atsitiktine tvarka ar įvesti pačiam
