@@ -22,12 +22,12 @@ Antanas     Programuotojas     6.33
 ## Įdiegimo ir naudojimo instrukcija
 * Įdiegimas (1 būdas)
   * Windows naudotojams:
-   ```
-   mingw32-make -f MakeFileWin
-   ```
+  ```
+  mingw32-make -f MakeFileWin
+  ```
   * MacOS, Linux ar kitos UNIX sistemos naudotojams:
   ```
-   make -f MakeFile
+  make -f MakeFile
   ```
 * Įdiegimas (2 būdas)
   * Iš skilties "releases" pasirinkti norimą programos versiją ir atsisiųsti
@@ -43,8 +43,9 @@ Antanas     Programuotojas     6.33
   
 * Naudojimas
   * Paleidus failą iš pradžių pasirinkti ar norima sugeneruoti duomenis automatiškai ir nuskaityti ar įvesti duomenis pačiam, nuskaityti iš failo
-  * Jei pasirinkta generuoti ir nuskaityti automatiškai, pasirenkama kokį kiekį studentų norima generuoti
-  * Jei pasirinkta duomenis nuskaityti iš failo galima atsisiųsti kelis šablonus, norimą nuskaityti failą pervadinti į "kursiokai.txt"
+  * Jei pasirinkta generuoti ir nuskaityti automatiškai, galimas pasirinkimas ar generuoti naują failą ar pereiti prie failo nuskaitymo
+  * Jei pasirinkta sugeneruoti naujus failus pasirenkame kokio dydžio failą generuoti
+  * Jei pasirenkama negeneruoti failo pereinama prie nuskaitymo, pasirenkame į kokio tipo konteinerį nuskaityti failą, tuomet pasirenkame kokio dydžio failą nuskaityti
   * Pasirinkus įvesti pačiam, įvesti studento vardą ir pavardę
   * Toliau atsakyti į programos užklausas įvedant t- TAIP, n- NE
   * Įvesti namų darbų ar egzamino rezultatus dešimtbalėje sistemoje
