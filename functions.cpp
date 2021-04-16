@@ -330,20 +330,24 @@ void generateFile(int numberStudents){
 
 void sortStudentsVector(vector<Studentas> &studentai){
     vector<Studentas> moksliukai;
-    //vector<Studentas> nepatenkinami;
     cout << "Pradedamas studentu rusiavimas..." << endl;
     Timer t;
-    for(auto it = studentai.begin(); it != studentai.end(); ++it){
+    auto it = partition(studentai.begin(), studentai.end(), mokslincius());
+    moksliukai.assign(studentai.begin(), it);
+    studentai.erase(studentai.begin(), it);
+    /*for(auto it = studentai.begin(); it != studentai.end(); ++it){
 
         if (it->vidurkis >= 5.00){
             moksliukai.push_back(*it);
             it = studentai.erase(it);
         }
-    }
-    vector<Studentas> nepatenkinami(studentai);
+    }*/
+    
+    sort(moksliukai.begin(), moksliukai.end(), varduPal());
+    sort(studentai.begin(), studentai.end(), varduPal());
     
 
-    cout << moksliukai.size() + nepatenkinami.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
+    cout << moksliukai.size() + studentai.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
 
 
     cout << "Studentu duomenis isvedami i failus..." << endl;
@@ -364,32 +368,38 @@ void sortStudentsVector(vector<Studentas> &studentai){
 
     nepat << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
 
-    for(int i = 0; i < nepatenkinami.size(); i++){
-        nepat << left << setw(20) << nepatenkinami[i].vardas << setw(20) << nepatenkinami[i].pavarde << setw(10) << setprecision(3) << nepatenkinami[i].vidurkis;
-        if(i != nepatenkinami.size() - 1) nepat << endl;
+    for(int i = 0; i < studentai.size(); i++){
+        nepat << left << setw(20) << studentai[i].vardas << setw(20) << studentai[i].pavarde << setw(10) << setprecision(3) << studentai[i].vidurkis;
+        if(i != studentai.size() - 1) nepat << endl;
     }
     nepat.close();
 
-    cout << moksliukai.size() + nepatenkinami.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
+    cout << moksliukai.size() + studentai.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
 };
 
 
 
 void sortStudentsList(list<Studentas> &studentai){
     list<Studentas> moksliukai;
-    //list<Studentas> nepatenkinami;
     cout << "Pradedamas studentu rusiavimas..." << endl;
     Timer t;
-    for(auto it = studentai.begin(); it != studentai.end(); ++it){
+    /*for(auto it = studentai.begin(); it != studentai.end(); ++it){
 
         if (it->vidurkis >= 5.00){
             moksliukai.push_back(*it);
-            it = studentai.erase(it);
+            studentai.erase(it);
         }
-    }
-    list<Studentas> nepatenkinami(studentai);
+    }*/
 
-    cout << moksliukai.size() + nepatenkinami.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
+    list<Studentas>::iterator it = studentai.begin(); 
+    while (it != studentai.end()) {
+        if (it->vidurkis >= 5.00) {
+            moksliukai.push_back(*it);
+            it = studentai.erase(it);
+        } else
+            ++it;
+    }
+    cout << moksliukai.size() + studentai.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
 
 
     cout << "Studentu duomenis isvedami i failus..." << endl;
@@ -409,28 +419,34 @@ void sortStudentsList(list<Studentas> &studentai){
 
     nepat << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
 
-    for(auto it = nepatenkinami.begin(); it != nepatenkinami.end(); it++){
+    for(auto it = studentai.begin(); it != studentai.end(); it++){
         nepat << left << setw(20) << it->vardas << setw(20) << it->pavarde << setw(10) << setprecision(3) << it->vidurkis << endl;
     }
     nepat.close();
 
-    cout << moksliukai.size() + nepatenkinami.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
+    cout << moksliukai.size() + studentai.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
 };
 
 void sortStudentsDeque(deque<Studentas> &studentai){
     deque<Studentas> moksliukai;
-    //deque<Studentas> nepatenkinami;
     cout << "Pradedamas studentu rusiavimas..." << endl;
     Timer t;
-    for(auto it = studentai.begin(); it != studentai.end(); ++it){
+    
+    auto it = partition(studentai.begin(), studentai.end(), mokslincius());
+    moksliukai.assign(studentai.begin(), it);
+    studentai.erase(studentai.begin(), it);
+    /*for(auto it = studentai.begin(); it != studentai.end(); ++it){
 
         if (it->vidurkis >= 5.00){
             moksliukai.push_back(*it);
             it = studentai.erase(it);
         }
-    }
-    deque<Studentas> nepatenkinami(studentai);
-    cout << moksliukai.size() + nepatenkinami.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
+    }*/
+    
+    sort(moksliukai.begin(), moksliukai.end(), varduPal());
+    sort(studentai.begin(), studentai.end(), varduPal());
+
+    cout << moksliukai.size() + studentai.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
 
 
     cout << "Studentu duomenis isvedami i failus..." << endl;
@@ -451,13 +467,13 @@ void sortStudentsDeque(deque<Studentas> &studentai){
 
     nepat << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
 
-    for(int i = 0; i < nepatenkinami.size(); i++){
-        nepat << left << setw(20) << nepatenkinami[i].vardas << setw(20) << nepatenkinami[i].pavarde << setw(10) << setprecision(3) << nepatenkinami[i].vidurkis;
-        if(i != nepatenkinami.size() - 1) nepat << endl;
+    for(int i = 0; i < studentai.size(); i++){
+        nepat << left << setw(20) << studentai[i].vardas << setw(20) << studentai[i].pavarde << setw(10) << setprecision(3) << studentai[i].vidurkis;
+        if(i != studentai.size() - 1) nepat << endl;
     }
     nepat.close();
 
-    cout << moksliukai.size() + nepatenkinami.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
+    cout << moksliukai.size() + studentai.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
 };
 
 int whichRead(){

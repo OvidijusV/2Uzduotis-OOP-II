@@ -53,6 +53,20 @@ void sortStudentsList(list<Studentas> &studentai);
 void sortStudentsDeque(deque<Studentas> &studentai);
 int whichRead();
 
+struct mokslincius {
+	bool operator() (const Studentas& kietas)
+	{
+		return (kietas.vidurkis >= 5.00);
+	}
+};
+struct varduPal {
+    bool operator()(const Studentas& vienas, const Studentas& du)
+    {
+        return (vienas.vardas.compare(du.vardas)) < 0;
+    }
+};
+
+
 template<class T>
 void generatedFileRead(T& studentai, int numm){
     Studentas student;
