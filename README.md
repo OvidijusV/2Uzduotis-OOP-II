@@ -62,18 +62,21 @@ Specifikacija: CPU I7-7700HQ 4Core 2.8GHz, RAM DDR4 2400MHz 16GB, SSD
 | -------------------- |----------| ---------|----------|----------|----------|
 | **Vector**           |          |          |          |          |          |
 | Dviejų konteinerių   | 0.152s   | 0.119s   | 1.261s   | 10.276s  | 78.135s  |
-| Vieno konteinerio    | 0.07s    | 5.404    | 0.071s   | 0.856s   | 8.964s   |
+| Vieno konteinerio    | 0.015s   | 0.159s   | 1.744s   | 17.342s  | 112.154s |
 | **List**             |          |          |          |          |          |
 | Dviejų konteinerių   | 0.015s   | 0.157s   | 1.311s   | 8.19s    | 94.073s  |
-| Vieno konteinerio    | 0.013s   | 0.123s   | 1.281s   | 12s      | 6.954s   |
+| Vieno konteinerio    | 0.013s   | 0.123s   | 1.281s   | 12s      | 98.204s  |
 | **Deque**            |          |          |          |          |          |
 | Dviejų konteinerių   | 0.013s   | 0.111s   | 1.184s   | 9.158s   | 94.012s  |
-| Vieno konteinerio    | 0.038s   | 2.41s    | 0.071s   | 0.606s   | 6.246s   |
+| Vieno konteinerio    | 0.013s   | 0.158s   | 1.825s   | 18.163s  | 99.578s  |
+
+Rūšiavimo algoritmą realizavus naudojant vieną konteinerį vietoj dviejų, žymiai suprastėjo vector ir deque konteinerių rūšiavimo spart. List konteineriui tai praktiškai neturėjo įtakos. Tam, jog stabilizuoti ir paspartinti vector ir deque konteinerių rūšiavimus buvo panaudotas "partition" algoritmas.
 
 ## Versijos
 [v0.1](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.1) Vardo, pavardės ir pažymių įvestis, atsakymai į programos užklausas, galutinio pažymio skaičiavimas(vidurkis arba mediana)\
 [v0.2](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.2) Pridėta galimybe nuskaityti rezultatus iš failo, pridėtas automatinis rikiavimas pagal pavardes\
 [v0.3](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.3) Atliktas kodo reorganizavimas, pagrindinis failas išskirtas į antraščių ir funkcijų failą, pridėti keli pranešimai nepavykus įvykdyti programos\
 [v0.4](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.4) Pridėtas automatinis duomenų generavimas ir nuskaitymas iš failo, studentų rūšiavimas pagal galutinį vidurkį ir išvedimas į du atskirus failus\
-[v0.5](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.5) Pridėta programos spartos matavimo galimybė naudojant vector, list arba deque konteinerius
+[v0.5](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.5) Pridėta programos spartos matavimo galimybė naudojant vector, list arba deque konteinerius\
+[v1.0](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v1.0) Ištestuota programos veikimo sparta naudojant vieną konteinerį rūšiavimo algoritme vietoj dviejų. Pridėtas make failas
 
