@@ -84,11 +84,23 @@ Specifikacija: CPU I7-7700HQ 4Core 2.8GHz, RAM DDR4 2400MHz 16GB, SSD
 
 Rūšiavimo algoritmą realizavus naudojant vieną konteinerį vietoj dviejų, žymiai suprastėjo vector ir deque konteinerių rūšiavimo spart. List konteineriui tai praktiškai neturėjo įtakos. Tam, jog stabilizuoti ir paspartinti vector ir deque konteinerių rūšiavimus buvo panaudotas "partition" algoritmas.
 
+## Programos veikimo spartos palyginimas naudojant "Studentas" klasę vietoj struktūros
+
+| **Vector**           | 100000   | 1000000  |
+| -------------------- |----------| ---------|
+| Struct               | 1.744s   | 17.342s  |
+| Class                | 2.155s   | 19.861s  |
+| Class(O1 flag)       | 1.212s   | 8.892s   |
+| Class(O2 flag)       | 1.296s   | 8.688s   |
+| Class(O3 flag)       | 1.287s   | 8.756s   |
+
+Studentas struct'ūrą pakeitus į class'ę studentų nuskaitymo ir rūšiavimo greitis vector konteineryje šiek tiek suprastėjo. Tačiau pasinaudojus kompiliatoriaus optimizavimu (flag'ais) programos veikimo sparta pagerėjo dvigubai. Pagal gautus rezultatus visi trys optimizavimo lygiai programą paspartino beveik vienodai.
+
 ## Versijos
 [v0.1](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.1) Vardo, pavardės ir pažymių įvestis, atsakymai į programos užklausas, galutinio pažymio skaičiavimas(vidurkis arba mediana)\
 [v0.2](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.2) Pridėta galimybe nuskaityti rezultatus iš failo, pridėtas automatinis rikiavimas pagal pavardes\
 [v0.3](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.3) Atliktas kodo reorganizavimas, pagrindinis failas išskirtas į antraščių ir funkcijų failą, pridėti keli pranešimai nepavykus įvykdyti programos\
 [v0.4](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.4) Pridėtas automatinis duomenų generavimas ir nuskaitymas iš failo, studentų rūšiavimas pagal galutinį vidurkį ir išvedimas į du atskirus failus\
 [v0.5](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.5) Pridėta programos spartos matavimo galimybė naudojant vector, list arba deque konteinerius\
-[v1.0](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v1.0) Ištestuota programos veikimo sparta naudojant vieną konteinerį rūšiavimo algoritme vietoj dviejų. Pridėtas make failas
-
+[v1.0](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v1.0) Ištestuota programos veikimo sparta naudojant vieną konteinerį rūšiavimo algoritme vietoj dviejų. Pridėtas make failas\
+[v1.1](https://github.com/OvidijusV/2Uzduotis-OOP-II/tree/v1.1) Vietoj studento struktūros pradėta naudoti klasė.
