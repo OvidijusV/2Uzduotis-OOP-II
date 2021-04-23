@@ -15,16 +15,8 @@
 #include <list>
 #include <deque>
 #include <iterator>
+#include "Studentas.h"
 using namespace std;
-
-struct Studentas
-{
-    string vardas;
-    string pavarde;
-    vector<int> pazymiai;
-    int egzaminas;
-    double vidurkis = 0;
-};
 
 class Timer {
     private:
@@ -56,13 +48,13 @@ int whichRead();
 struct mokslincius {
 	bool operator() (const Studentas& kietas)
 	{
-		return (kietas.vidurkis >= 5.00);
+		return (kietas.getVidurkis() >= 5.00);
 	}
 };
 struct varduPal {
     bool operator()(const Studentas& vienas, const Studentas& du)
     {
-        return (vienas.vardas.compare(du.vardas)) < 0;
+        return (vienas.getVardas().compare(du.getVardas())) < 0;
     }
 };
 
@@ -110,12 +102,12 @@ void generatedFileRead(T& studentai, int numm){
 
         galutinisvid -= n;
         grades.pop_back();
-        student.egzaminas = n;
+        student.setEgz(n);
         galutinisvid = galutinisvid / grades.size();
-        student.vidurkis = 0.4 * galutinisvid + 0.6 * student.egzaminas;
-        student.vardas = vardas;
-        student.pavarde = pavarde;
-        student.pazymiai = grades;
+        student.setVidurkis(0.4 * galutinisvid + 0.6 * student.getEgzaminas());
+        student.setVardas(vardas);
+        student.setPavarde(pavarde);
+        student.setPazymiai(grades);
         studentai.push_back(student);
         grades.clear();
 
