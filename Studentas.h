@@ -15,6 +15,38 @@ class Studentas {
     public:
         Studentas() : vidurkis(0) { }
         Studentas(string vardas, string pavarde, int egzaminas, vector<int> pazymiai);
+
+        //Copy konstruktorius
+        Studentas (const Studentas& a) : egzaminas(a.getEgzaminas()) , vidurkis(a.getVidurkis()){
+            vardas = a.getVardas();
+            pavarde = a.getPavarde();
+            
+            pazymiai.reserve(a.getPazymiai().size());
+            for(int i : a.getPazymiai()){
+                pazymiai.push_back(i);
+            }
+        }
+
+        // Copy assignment operatorius
+        Studentas& operator=(const Studentas& a) {
+            if(&a == this) return *this;
+
+            vardas = a.getVardas();
+            pavarde = a.getPavarde();
+            egzaminas = a.getEgzaminas();
+            vidurkis = a.getVidurkis();
+            pazymiai.clear();
+            pazymiai.shrink_to_fit();
+            pazymiai.reserve(a.getPazymiai().size());
+            for(int i : a.getPazymiai()) {
+                pazymiai.push_back(i);
+            }
+            return *this;
+        }
+
+        //Objekto destruktorius
+        ~Studentas(){}
+
         //get
         inline string getVardas() const {return vardas; }
         inline string getPavarde() const {return pavarde; }
