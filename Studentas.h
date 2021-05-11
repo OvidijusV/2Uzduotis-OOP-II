@@ -1,20 +1,19 @@
-#ifndef STUDENTASH
-#define STUDENTASH
+#ifndef STUDENTAS_H
+#define STUDENTAS_H
 
 #include <string>
 #include <vector>
+#include "Zmogus.h"
 using namespace std;
 
-class Studentas {
+class Studentas : public Zmogus {
     private:
-        string vardas;
-        string pavarde;
         vector<int> pazymiai;
         int egzaminas;
         double vidurkis;
     public:
-        Studentas() : vidurkis(0) { }
-        Studentas(string vardas, string pavarde, int egzaminas, vector<int> pazymiai);
+        Studentas() : vidurkis(0) { Zmogus::vardas = "", Zmogus::pavarde = ""; }
+        Studentas(string vardas, string pavarde, int egzaminas, vector<int> pazymiai) : vidurkis(0) { vardas = vardas; pavarde = pavarde; }
 
         //Copy konstruktorius
         Studentas (const Studentas& a) : egzaminas(a.getEgzaminas()) , vidurkis(a.getVidurkis()){
@@ -48,14 +47,14 @@ class Studentas {
         ~Studentas(){}
 
         //get
-        inline string getVardas() const {return vardas; }
-        inline string getPavarde() const {return pavarde; }
+        //inline string getVardas() const {return vardas; }
+        //inline string getPavarde() const {return pavarde; }
         inline vector<int> getPazymiai() const {return pazymiai; }
         inline int getEgzaminas() const {return egzaminas; }
         inline double getVidurkis() const {return vidurkis; }
         //set
-        inline void setVardas(string vardas) {Studentas::vardas = vardas; }
-        inline void setPavarde(string pavarde) {Studentas::pavarde = pavarde; }
+        //inline void setVardas(string vardas) {Studentas::vardas = vardas; }
+        //inline void setPavarde(string pavarde) {Studentas::pavarde = pavarde; }
         inline void setPazymiai(vector<int> pazymiai) {Studentas::pazymiai = pazymiai; }
         inline void setEgz(int egz) {Studentas::egzaminas = egz; }
         inline void setVidurkis(double vidurkis) {Studentas::vidurkis = vidurkis; }
