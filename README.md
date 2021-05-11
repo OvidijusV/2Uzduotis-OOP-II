@@ -104,5 +104,5 @@ Studentas struct'ūrą pakeitus į class'ę studentų nuskaitymo ir rūšiavimo 
 [v0.5](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.5) Pridėta programos spartos matavimo galimybė naudojant vector, list arba deque konteinerius\
 [v1.0](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v1.0) Ištestuota programos veikimo sparta naudojant vieną konteinerį rūšiavimo algoritme vietoj dviejų. Pridėtas make failas\
 [v1.1](https://github.com/OvidijusV/2Uzduotis-OOP-II/tree/v1.1) Vietoj studento struktūros pradėta naudoti klasė\
-[v1.2](https://github.com/OvidijusV/2Uzduotis-OOP-II/tree/v1.2) Realizuota "Rule of three"
+[v1.2](https://github.com/OvidijusV/2Uzduotis-OOP-II/tree/v1.2) Realizuota "Rule of three"\
 [v1.5](https://github.com/OvidijusV/2Uzduotis-OOP-II/tree/v1.5) Sukurta bazinė abstrakčioji ir išvestinė klasės
