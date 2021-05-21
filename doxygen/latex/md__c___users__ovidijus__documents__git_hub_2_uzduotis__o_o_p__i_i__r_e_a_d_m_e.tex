@@ -1,0 +1,135 @@
+\hypertarget{md__c___users__ovidijus__documents__git_hub_2_uzduotis__o_o_p__i_i__r_e_a_d_m_e_autotoc_md1}{}\doxysection{Funkcijos}\label{md__c___users__ovidijus__documents__git_hub_2_uzduotis__o_o_p__i_i__r_e_a_d_m_e_autotoc_md1}
+Vartotojas gali/turi\+:
+\begin{DoxyItemize}
+\item Pasirinkti ar generuoti duomenis ir nuskaityti automatiškai ar įvesti studento duomenis pačiam, nuskaityti iš failo
+\item Pasirinkti ar generuoti naują failą ar pereiti prie nuskaitymo
+\item Pasirinkus įvesti pačiam, prašoma įvesti studento vardą ir pavardę
+\item Pasirinkti ar žino atliktų namų darbų skaičių (t/n forma)
+\item Pasirinkti ar namų darbų rezultatus sugeneruoti atsitiktine tvarka ar įvesti pačiam
+\item Įvesti egzamino rezultatą
+\item Pasirinkti ar pridėti kitą studentą
+\item Pasirinkti galutinio pažymio skaičiavimo būdą (vidurkis arba mediana)
+\item Rikiavimas pagal studento pavardę
+\item Programa išveda gautus rezultatus panašiu pavidalu\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Vardas      Pavarde            Galutinis Vid.(arba Mediana)}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{Ovidijus    Bulka              5.00}
+\DoxyCodeLine{Justas      Vairuotojas        7.49}
+\DoxyCodeLine{Antanas     Programuotojas     6.33 }
+
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\hypertarget{md__c___users__ovidijus__documents__git_hub_2_uzduotis__o_o_p__i_i__r_e_a_d_m_e_autotoc_md2}{}\doxysection{Įdiegimo ir naudojimo instrukcija}\label{md__c___users__ovidijus__documents__git_hub_2_uzduotis__o_o_p__i_i__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Įdiegimas (1 būdas)
+\begin{DoxyItemize}
+\item Windows naudotojams\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mingw32-\/make -\/f MakeFileWin}
+
+\end{DoxyCode}
+
+\item Mac\+OS, Linux ar kitos UNIX sistemos naudotojams\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make -\/f MakeFile}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+\item Įdiegimas (2 būdas)
+\begin{DoxyItemize}
+\item Iš skilties \char`\"{}releases\char`\"{} pasirinkti norimą programos versiją ir atsisiųsti
+\item Atsisiųstą kodą sukompiliuoti per komandinę eilutę (CMD) arba naudojamu IDE 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{g++ -\/o programa main.cpp functions.cpp}
+
+\end{DoxyCode}
+
+\item Paleisti gautą vykdomąjį failą (.exe) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./programa}
+\DoxyCodeLine{Arba tiesiog atidaryti .exe failą tame aplanke kur atsisiuntėte programą}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+\item Naudojimas
+\begin{DoxyItemize}
+\item Paleidus failą iš pradžių pasirinkti ar norima sugeneruoti duomenis automatiškai ir nuskaityti ar įvesti duomenis pačiam, nuskaityti iš failo
+\item Jei pasirinkta generuoti ir nuskaityti automatiškai, galimas pasirinkimas ar generuoti naują failą ar pereiti prie failo nuskaitymo
+\item Jei pasirinkta sugeneruoti naujus failus pasirenkame kokio dydžio failą generuoti
+\item Jei pasirenkama negeneruoti failo pereinama prie nuskaitymo, pasirenkame į kokio tipo konteinerį nuskaityti failą, tuomet pasirenkame kokio dydžio failą nuskaityti
+\item Pasirinkus įvesti pačiam, įvesti studento vardą ir pavardę
+\item Toliau atsakyti į programos užklausas įvedant t-\/ TAIP, n-\/ NE
+\item Įvesti namų darbų ar egzamino rezultatus dešimtbalėje sistemoje
+\item Pasirinkti ar norime, jog galutinis pažymis būtų skaičiuojamas kaip mediana -\/ t, jei norime jog būtų išvestas vidurkis -\/ n
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__c___users__ovidijus__documents__git_hub_2_uzduotis__o_o_p__i_i__r_e_a_d_m_e_autotoc_md3}{}\doxysection{Programos veikimo sparta}\label{md__c___users__ovidijus__documents__git_hub_2_uzduotis__o_o_p__i_i__r_e_a_d_m_e_autotoc_md3}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{6}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 100000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000000    }\\\cline{1-6}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 100000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000000    }\\\cline{1-6}
+\endhead
+{\bfseries{Vector}}   &&&&&\\\cline{1-6}
+Nuskaitymas   &0.\+018s   &0.\+109s   &1.\+19s   &9.\+42s   &69.\+171s    \\\cline{1-6}
+Rūšiavimas   &0.\+134s   &0.\+01s   &0.\+071s   &0.\+856s   &8.\+964s    \\\cline{1-6}
+{\bfseries{List}}   &&&&&\\\cline{1-6}
+Nuskaitymas   &0.\+014s   &0.\+148s   &1.\+232s   &7.\+529s   &87.\+119s    \\\cline{1-6}
+Rūšiavimas   &0.\+001s   &0.\+009s   &0.\+079s   &0.\+661s   &6.\+954s    \\\cline{1-6}
+{\bfseries{Deque}}   &&&&&\\\cline{1-6}
+Nuskaitymas   &0.\+012s   &0.\+102s   &1.\+113s   &8.\+552s   &87.\+766s    \\\cline{1-6}
+Rūšiavimas   &0.\+001s   &0.\+009s   &0.\+071s   &0.\+606s   &6.\+246s   \\\cline{1-6}
+\end{longtabu}
+
+
+Specifikacija\+: CPU I7-\/7700\+HQ 4Core 2.\+8\+GHz, RAM DDR4 2400MHz 16GB, SSD\hypertarget{md__c___users__ovidijus__documents__git_hub_2_uzduotis__o_o_p__i_i__r_e_a_d_m_e_autotoc_md4}{}\doxysection{Programos veikimo spartos dvejomis strategijomis palyginimas}\label{md__c___users__ovidijus__documents__git_hub_2_uzduotis__o_o_p__i_i__r_e_a_d_m_e_autotoc_md4}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{6}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 100000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000000    }\\\cline{1-6}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 100000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000000    }\\\cline{1-6}
+\endhead
+{\bfseries{Vector}}   &&&&&\\\cline{1-6}
+Dviejų konteinerių   &0.\+152s   &0.\+119s   &1.\+261s   &10.\+276s   &78.\+135s    \\\cline{1-6}
+Vieno konteinerio   &0.\+015s   &0.\+159s   &1.\+744s   &17.\+342s   &112.\+154s    \\\cline{1-6}
+{\bfseries{List}}   &&&&&\\\cline{1-6}
+Dviejų konteinerių   &0.\+015s   &0.\+157s   &1.\+311s   &8.\+19s   &94.\+073s    \\\cline{1-6}
+Vieno konteinerio   &0.\+013s   &0.\+123s   &1.\+281s   &12s   &98.\+204s    \\\cline{1-6}
+{\bfseries{Deque}}   &&&&&\\\cline{1-6}
+Dviejų konteinerių   &0.\+013s   &0.\+111s   &1.\+184s   &9.\+158s   &94.\+012s    \\\cline{1-6}
+Vieno konteinerio   &0.\+013s   &0.\+158s   &1.\+825s   &18.\+163s   &99.\+578s   \\\cline{1-6}
+\end{longtabu}
+
+
+Rūšiavimo algoritmą realizavus naudojant vieną konteinerį vietoj dviejų, žymiai suprastėjo vector ir deque konteinerių rūšiavimo spart. List konteineriui tai praktiškai neturėjo įtakos. Tam, jog stabilizuoti ir paspartinti vector ir deque konteinerių rūšiavimus buvo panaudotas \char`\"{}partition\char`\"{} algoritmas.\hypertarget{md__c___users__ovidijus__documents__git_hub_2_uzduotis__o_o_p__i_i__r_e_a_d_m_e_autotoc_md5}{}\doxysection{Programos veikimo spartos palyginimas naudojant \char`\"{}\+Studentas\char`\"{} klasę vietoj struktūros}\label{md__c___users__ovidijus__documents__git_hub_2_uzduotis__o_o_p__i_i__r_e_a_d_m_e_autotoc_md5}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Vector}}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 100000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000000    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Vector}}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 100000   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000000    }\\\cline{1-3}
+\endhead
+Struct   &1.\+744s   &17.\+342s    \\\cline{1-3}
+Class   &2.\+155s   &19.\+861s    \\\cline{1-3}
+Class(\+O1 flag)   &1.\+212s   &8.\+892s    \\\cline{1-3}
+Class(\+O2 flag)   &1.\+296s   &8.\+688s    \\\cline{1-3}
+Class(\+O3 flag)   &1.\+287s   &8.\+756s   \\\cline{1-3}
+\end{longtabu}
+
+
+\mbox{\hyperlink{class_studentas}{Studentas}} struct\textquotesingle{}ūrą pakeitus į class\textquotesingle{}ę studentų nuskaitymo ir rūšiavimo greitis vector konteineryje šiek tiek suprastėjo. Tačiau pasinaudojus kompiliatoriaus optimizavimu (flag\textquotesingle{}ais) programos veikimo sparta pagerėjo dvigubai. Pagal gautus rezultatus visi trys optimizavimo lygiai programą paspartino beveik vienodai.\hypertarget{md__c___users__ovidijus__documents__git_hub_2_uzduotis__o_o_p__i_i__r_e_a_d_m_e_autotoc_md6}{}\doxysection{Versijos}\label{md__c___users__ovidijus__documents__git_hub_2_uzduotis__o_o_p__i_i__r_e_a_d_m_e_autotoc_md6}
+\href{https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.1}{\texttt{ v0.\+1}} Vardo, pavardės ir pažymių įvestis, atsakymai į programos užklausas, galutinio pažymio skaičiavimas(vidurkis arba mediana)\textbackslash{} \href{https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.2}{\texttt{ v0.\+2}} Pridėta galimybe nuskaityti rezultatus iš failo, pridėtas automatinis rikiavimas pagal pavardes\textbackslash{} \href{https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.3}{\texttt{ v0.\+3}} Atliktas kodo reorganizavimas, pagrindinis failas išskirtas į antraščių ir funkcijų failą, pridėti keli pranešimai nepavykus įvykdyti programos\textbackslash{} \href{https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.4}{\texttt{ v0.\+4}} Pridėtas automatinis duomenų generavimas ir nuskaitymas iš failo, studentų rūšiavimas pagal galutinį vidurkį ir išvedimas į du atskirus failus\textbackslash{} \href{https://github.com/OvidijusV/2Uzduotis-OOP/tree/v0.5}{\texttt{ v0.\+5}} Pridėta programos spartos matavimo galimybė naudojant vector, list arba deque konteinerius\textbackslash{} \href{https://github.com/OvidijusV/2Uzduotis-OOP/tree/v1.0}{\texttt{ v1.\+0}} Ištestuota programos veikimo sparta naudojant vieną konteinerį rūšiavimo algoritme vietoj dviejų. Pridėtas make failas\textbackslash{} \href{https://github.com/OvidijusV/2Uzduotis-OOP-II/tree/v1.1}{\texttt{ v1.\+1}} Vietoj studento struktūros pradėta naudoti klasė\textbackslash{} \href{https://github.com/OvidijusV/2Uzduotis-OOP-II/tree/v1.2}{\texttt{ v1.\+2}} Realizuota \char`\"{}\+Rule of three\char`\"{}\textbackslash{} \href{https://github.com/OvidijusV/2Uzduotis-OOP-II/tree/v1.5}{\texttt{ v1.\+5}} Sukurta bazinė abstrakčioji ir išvestinė klasės 
