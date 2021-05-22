@@ -16,6 +16,7 @@
 #include <deque>
 #include <iterator>
 #include "Studentas.h"
+#include "catch.hpp"
 using namespace std;
 
 class Timer {
