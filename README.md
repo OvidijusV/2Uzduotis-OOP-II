@@ -22,6 +22,8 @@ Antanas     Programuotojas     6.33
 ```
 ## Įdiegimo ir naudojimo instrukcija
 * Įdiegimas (1 būdas)
+  * Iš "releases" skilties atsisiųsti automatinį įdiegimo failą ir įsirašyti programą
+* Įdiegimas (2 būdas)
   * Windows naudotojams:
   ```
   mingw32-make -f MakeFileWin
@@ -30,7 +32,7 @@ Antanas     Programuotojas     6.33
   ```
   make -f MakeFile
   ```
-* Įdiegimas (2 būdas)
+* Įdiegimas (3 būdas)
   * Iš skilties "releases" pasirinkti norimą programos versiją ir atsisiųsti
   * Atsisiųstą kodą sukompiliuoti per komandinę eilutę (CMD) arba naudojamu IDE
   ```
@@ -105,4 +107,5 @@ Studentas struct'ūrą pakeitus į class'ę studentų nuskaitymo ir rūšiavimo 
 [v1.0](https://github.com/OvidijusV/2Uzduotis-OOP/tree/v1.0) Ištestuota programos veikimo sparta naudojant vieną konteinerį rūšiavimo algoritme vietoj dviejų. Pridėtas make failas\
 [v1.1](https://github.com/OvidijusV/2Uzduotis-OOP-II/tree/v1.1) Vietoj studento struktūros pradėta naudoti klasė\
 [v1.2](https://github.com/OvidijusV/2Uzduotis-OOP-II/tree/v1.2) Realizuota "Rule of three"\
-[v1.5](https://github.com/OvidijusV/2Uzduotis-OOP-II/tree/v1.5) Sukurta bazinė abstrakčioji ir išvestinė klasės
+[v1.5](https://github.com/OvidijusV/2Uzduotis-OOP-II/tree/v1.5) Sukurta bazinė abstrakčioji ir išvestinė klasės\
+[v2.0](https://github.com/OvidijusV/2Uzduotis-OOP-II/tree/v2.0) Pridėta doxygen dokumentacija, keli unit testai, bei sukurtas automatinis įdiegimo failas
